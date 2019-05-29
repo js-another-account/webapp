@@ -1,8 +1,14 @@
 sudo: required
 language: python
+python:
+  - "3.7"
 
 services:
   - docker
+
+before_script:
+  - flake8
+  - python -m unittest -v
 
 script:
   - docker build --build-arg GIT_COMMIT_SHA="${TRAVIS_COMMIT}" -t "${DOCKER_USERNAME}/webapp:${TRAVIS_COMMIT}" .

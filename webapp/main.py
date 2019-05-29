@@ -18,7 +18,3 @@ def healthcheck():
         description='Tech test 2',
         sha=sha
     )
-
-
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=8000)
