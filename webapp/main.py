@@ -14,7 +14,7 @@ def home():
 def healthcheck():
     sha = os.environ.get('ENV_GIT_COMMIT_SHA')
     return jsonify(
-        version=version,
+        version='nobody here',
         description='Tech test 2',
         sha=sha
     )
