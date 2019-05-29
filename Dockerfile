@@ -7,10 +7,10 @@ ENV ENV_GIT_COMMIT_SHA=${GIT_COMMIT_SHA}
 
 RUN apk add --update python3
 
+RUN pip3 install -r requirements.txt
+
 COPY . /app
 
 WORKDIR /app
-
-RUN pip3 install -r requirements.txt
 
 ENTRYPOINT [ "python3", "./server.py" ]
