@@ -5,11 +5,11 @@ services:
   - docker
 
 script:
-  - docker build --build-arg GIT_COMMIT_SHA="${TRAVIS_COMMIT}" -t webapp .
+  - docker build --build-arg GIT_COMMIT_SHA="${TRAVIS_COMMIT}" -t "${DOCKER_USERNAME}/webapp:${TRAVIS_COMMIT}" .
 
 before_deploy:
   - echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
-  - docker tag webapp "${DOCKER_USERNAME}/webapp:${TRAVIS_COMMIT}" "${DOCKER_USERNAME}/webapp:latest"
+  - docker tag "${DOCKER_USERNAME}/webapp:${TRAVIS_COMMIT}" "${DOCKER_USERNAME}/webapp:latest"
 
 deploy:
   provider: script
