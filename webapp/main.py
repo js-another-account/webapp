@@ -1,6 +1,6 @@
 import os
 from flask import Flask, jsonify
-from version import version
+# from version import version
 
 app = Flask(__name__)
 
