@@ -1,6 +1,6 @@
 import os
 from flask import Flask, jsonify
-# from version import version
+from version import version
 
 app = Flask(__name__)
 
@@ -14,7 +14,7 @@ def home():
 def healthcheck():
     sha = os.environ.get('ENV_GIT_COMMIT_SHA')
     return jsonify(
-        version='nobody here',
+        version=version,
         description='Tech test 2',
         sha=sha
     )
